@@ -7,8 +7,8 @@ repositories {
         allowInsecureProtocol
     }
     maven {
-        name 'ic2'
-        url 'http://maven.ic2.player.to/'
+        name = "ic2"
+        url = "https://mvn.falsepattern.com/ic2/"
         metadataSources {
             mavenPom()
             artifact()
@@ -19,6 +19,22 @@ repositories {
         content {
             includeGroup 'curse.maven'
         }
+    }
+    maven {
+        name = "mavenpattern"
+        url = "https://mvn.falsepattern.com/releases/"
+    }
+    maven {
+        name = "FalsePattern GTMEGA Maven"
+        url = "https://mvn.falsepattern.com/gtmega_releases/"
+    }
+    maven {
+        name = "cursemaven"
+        url = "https://mvn.falsepattern.com/cursemaven/"
+    }
+    maven {
+        name = "Usrv"
+        url = "https://mvn.falsepattern.com/usrv/"
     }
     maven {
         url 'https://jitpack.io'
