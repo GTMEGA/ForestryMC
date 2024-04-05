@@ -26,7 +26,7 @@ import forestry.farming.gui.IFarmLedgerDelegate;
 
 public class FarmHydrationManager implements IFarmLedgerDelegate, INBTTagable, IStreamable {
 	private static final int DELAY_HYDRATION = 100;
-	private static final float RAINFALL_MODIFIER_MAX = 15f;
+	private static final float RAINFALL_MODIFIER_MAX = 2f;
 	private static final float RAINFALL_MODIFIER_MIN = 0.5f;
 
 	private final IClimatised climatised;
@@ -54,7 +54,7 @@ public class FarmHydrationManager implements IFarmLedgerDelegate, INBTTagable, I
 
 	@Override
 	public float getHydrationModifier() {
-		return getHydrationTempModifier() * getHydrationHumidModifier() * getHydrationRainfallModifier();
+		return Math.min(2f, getHydrationTempModifier() * getHydrationHumidModifier() * getHydrationRainfallModifier());
 	}
 
 	@Override
