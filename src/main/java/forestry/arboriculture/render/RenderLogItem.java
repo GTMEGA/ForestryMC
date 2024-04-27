@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.arboriculture.render;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -61,7 +62,7 @@ public class RenderLogItem implements IItemRenderer {
 	}
 
 	private static void renderItem(RenderBlocks renderer, ItemStack itemStack, float x, float y, float z, boolean fullBlock) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		Block block = ItemStackUtil.getBlock(itemStack);
 
 		if (!(itemStack.getItem() instanceof ItemBlockWood) || block == null) {

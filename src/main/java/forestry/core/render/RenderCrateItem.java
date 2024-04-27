@@ -94,7 +94,7 @@ public class RenderCrateItem implements IItemRenderer {
 
 	private void renderEquipped(ItemStack stack) {
 		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 
 		int meta = stack.getItemDamage();
 		for (int pass = 0; pass < stack.getItem().getRenderPasses(meta); ++pass) {
@@ -169,7 +169,7 @@ public class RenderCrateItem implements IItemRenderer {
 	}
 
 	private void renderIn3D(ItemStack stack) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		if (RenderManager.instance.renderEngine == null) {
 			return;
 		}

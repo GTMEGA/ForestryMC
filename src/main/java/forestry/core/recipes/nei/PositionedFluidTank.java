@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.EnumChatFormatting;
@@ -130,7 +131,7 @@ public class PositionedFluidTank {
 				double minV = fluidIcon.getMinV();
 				double maxV = fluidIcon.getMaxV();
 
-				Tessellator tessellator = Tessellator.instance;
+				Tessellator tessellator = TessProvider.getTess();
 				tessellator.startDrawingQuads();
 				tessellator.addVertexWithUV(drawX, drawY + drawHeight, 0, minU, minV + (maxV - minV) * drawHeight / 16F);
 				tessellator.addVertexWithUV(drawX + drawWidth, drawY + drawHeight, 0, minU + (maxU - minU) * drawWidth / 16F, minV + (maxV - minV) * drawHeight / 16F);

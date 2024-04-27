@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.ActiveRenderInfo;
@@ -141,7 +142,7 @@ public class ParticleRenderer {
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0.003921569F);
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		tessellator.startDrawingQuads();
 
 		for (EntityFX particle : particles) {

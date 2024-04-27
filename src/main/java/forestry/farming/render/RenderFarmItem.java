@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.farming.render;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.item.ItemStack;
@@ -24,7 +25,7 @@ import forestry.farming.blocks.BlockFarm;
 public class RenderFarmItem implements IItemRenderer {
 
 	private static void renderFarmBlock(RenderBlocks render, ItemStack item, float translateX, float translateY, float translateZ) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		BlockFarm block = (BlockFarm) ItemStackUtil.getBlock(item);
 		if (block == null) {
 			return;

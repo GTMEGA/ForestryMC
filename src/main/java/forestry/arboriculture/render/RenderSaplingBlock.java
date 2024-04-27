@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.arboriculture.render;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -64,7 +65,7 @@ public class RenderSaplingBlock implements ISimpleBlockRenderingHandler {
 
 	private static boolean renderCrossedSquares(int renderLayer, IAlleleTreeSpecies species, IBlockAccess world, Block block, int x, int y, int z) {
 
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = TessProvider.getTess();
 		
 		tess.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 		int colourMultiplier = species.getGermlingColour(EnumGermlingType.SAPLING, renderLayer);
@@ -86,7 +87,7 @@ public class RenderSaplingBlock implements ISimpleBlockRenderingHandler {
 
 	private static void drawCrossedSquares(int renderLayer, IAlleleTreeSpecies species, double par3, double par5, double par7, float mod) {
 
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = TessProvider.getTess();
 		IIcon icon = species.getGermlingIcon(EnumGermlingType.SAPLING, renderLayer);
 
 		double d3 = (double) icon.getMinU();

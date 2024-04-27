@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.apiculture.render;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -62,7 +63,7 @@ public class RenderCandleBlock implements ISimpleBlockRenderingHandler {
 		IIcon iconB = block.getTextureFromPassAndLit(1, isLit);
 
 		int colour = tileCandle.getColour();
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		tessellator.setBrightness(world.getLightBrightnessForSkyBlocks(x, y, z, block.getLightValue(world, x, y, z)));
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 		double d0 = 0.4000000059604645D;
@@ -90,7 +91,7 @@ public class RenderCandleBlock implements ISimpleBlockRenderingHandler {
 	}
 
 	private static void renderCandleAtAngle(IIcon icon, double x, double y, double z, double par8, double par10, int colour) {
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		double minU = icon.getMinU();
 		double minV = icon.getMinV();
 		double maxU = icon.getMaxU();

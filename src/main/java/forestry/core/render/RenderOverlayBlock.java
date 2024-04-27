@@ -33,7 +33,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x, y - 1, z, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);
@@ -48,7 +48,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x, y + 1, z, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);
@@ -63,7 +63,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x, y, z - 1, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);
@@ -78,7 +78,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x, y, z + 1, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);
@@ -93,7 +93,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x - 1, y, z, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);
@@ -108,7 +108,7 @@ public abstract class RenderOverlayBlock implements ISimpleBlockRenderingHandler
 			return;
 		}
 
-		Tessellator tesselator = Tessellator.instance;
+		Tessellator tesselator = TessProvider.getTess();
 
 		tesselator.setBrightness(determineMixedBrightness(world, block, x + 1, y, z, renderer, mixedBrightness));
 		tesselator.setColorOpaque_F(r, g, b);

@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.arboriculture.render;
 
+import forestry.core.render.TessProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -40,7 +41,7 @@ public class RenderFruitPodBlock implements ISimpleBlockRenderingHandler {
 			maturity = pod.getMaturity();
 		}
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = TessProvider.getTess();
 		tessellator.setBrightness(blockPod.getMixedBrightnessForBlock(world, x, y, z));
 		tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
 		int metadata = world.getBlockMetadata(x, y, z);

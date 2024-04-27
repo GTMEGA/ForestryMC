@@ -93,7 +93,7 @@ public class RenderBeeItem implements IItemRenderer {
 		float width = 1f; float height = 1f;
 
 		Proxies.render.bindTexture(SpriteSheet.ITEMS);
-        Tessellator tessellator = Tessellator.instance;
+        Tessellator tessellator = TessProvider.getTess();
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV((double)(xPos + 0), (double)(yPos + height), 0f, (double)background.getMinU(), (double)background.getMaxV());
         tessellator.addVertexWithUV((double)(xPos + width), (double)(yPos + height), 0f, (double)background.getMaxU(), (double)background.getMaxV());
