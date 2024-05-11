@@ -21,6 +21,7 @@ import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeType;
 import forestry.api.apiculture.IBee;
 import forestry.api.apiculture.IHiveDrop;
+import forestry.plugins.PluginApiculture;
 
 public class HiveDrop implements IHiveDrop {
 
@@ -44,7 +45,7 @@ public class HiveDrop implements IHiveDrop {
 	@Override
 	public ItemStack getPrincess(World world, int x, int y, int z, int fortune) {
 		IBee bee = beeTemplate.getIndividual();
-		if (world.rand.nextFloat() < ignobleShare) {
+		if (world.rand.nextFloat() < ignobleShare * PluginApiculture.getIgnoblePrincessChanceMult()) {
 			bee.setIsNatural(false);
 		}
 

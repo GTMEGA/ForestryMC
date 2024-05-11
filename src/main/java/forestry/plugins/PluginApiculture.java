@@ -130,6 +130,8 @@ public class PluginApiculture extends ForestryPlugin {
 	private static final String CONFIG_CATEGORY = "apiculture";
 	public static String beekeepingMode = "NORMAL";
 	private static float secondPrincessChance = 0;
+
+	private static float ignoblePrincessChanceMult = 1;
 	public static final int ticksPerBeeWorkCycle = 550;
 	public static boolean fancyRenderedBees = false;
 
@@ -232,6 +234,8 @@ public class PluginApiculture extends ForestryPlugin {
 		Log.finer("Beekeeping mode read from config: " + beekeepingMode);
 
 		secondPrincessChance = config.getFloatLocalized("beekeeping", "second.princess", secondPrincessChance, 0.0f, 100.0f);
+
+		ignoblePrincessChanceMult = config.getFloatLocalized("beekeeping", "ignoble.princess", ignoblePrincessChanceMult, 0.0f, 100.0f);
 
 		String acceptedFlowerMessage = StringUtil.localize("config.beekeeping.flowers.accepted.comment");
 		String plantableFlowerMessage = StringUtil.localize("config.beekeeping.flowers.plantable.comment");
@@ -843,8 +847,12 @@ public class PluginApiculture extends ForestryPlugin {
 		AlleleEffect.createAlleles();
 	}
 
-	public static double getSecondPrincessChance() {
+	public static float getSecondPrincessChance() {
 		return secondPrincessChance;
+	}
+
+	public static float getIgnoblePrincessChanceMult() {
+		return ignoblePrincessChanceMult;
 	}
 
 	private static void parseBeeBlacklist(String[] items) {
