@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -137,7 +138,7 @@ public final class CommandSaveStats extends SubCommand {
 			}
 
 			FileOutputStream fileout = new FileOutputStream(file);
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fileout, "UTF-8"));
+			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fileout, StandardCharsets.UTF_8));
 
 			writer.write("# " + Constants.MOD + newLine + "# " + Version.getVersion() + newLine);
 

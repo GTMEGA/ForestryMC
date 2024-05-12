@@ -61,7 +61,7 @@ public class GuiIdRegistry {
 	private static int nextId = 0;
 
 	static {
-		registerGuiHandlers(GuiType.Tile, Arrays.<Class<? extends IGuiHandlerForestry>>asList(
+		registerGuiHandlers(GuiType.Tile, Arrays.asList(
 				TileAlveary.class,
 				TileAlvearyHygroregulator.class,
 				TileAlvearySieve.class,
@@ -93,9 +93,9 @@ public class GuiIdRegistry {
 				TileMailbox.class,
 				TileStampCollector.class,
 				TileTrader.class
-		));
+                                                       ));
 
-		registerGuiHandlers(GuiType.Item, Arrays.<Class<? extends IGuiHandlerForestry>>asList(
+		registerGuiHandlers(GuiType.Item, Arrays.asList(
 				ItemBackpack.class,
 				ItemBackpackNaturalist.class,
 				ItemBeealyzer.class,
@@ -107,12 +107,12 @@ public class GuiIdRegistry {
 				ItemLetter.class,
 				ItemSolderingIron.class,
 				ItemTreealyzer.class
-		));
+                                                       ));
 
-		registerGuiHandlers(GuiType.Entity, Arrays.<Class<? extends IGuiHandlerForestry>>asList(
+		registerGuiHandlers(GuiType.Entity, Arrays.asList(
 				EntityMinecartApiary.class,
 				EntityMinecartBeehouse.class
-		));
+                                                         ));
 	}
 
 	private static void registerGuiHandlers(GuiType guiType, List<Class<? extends IGuiHandlerForestry>> guiHandlerClasses) {

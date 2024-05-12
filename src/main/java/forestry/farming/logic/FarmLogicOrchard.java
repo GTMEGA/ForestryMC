@@ -12,8 +12,10 @@ package forestry.farming.logic;
 
 import com.google.common.collect.ImmutableList;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -33,6 +35,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import forestry.api.genetics.IFruitBearer;
+import forestry.core.utils.vect.IVect;
+import forestry.core.utils.vect.MutableVect;
 import forestry.core.utils.vect.Vect;
 import forestry.core.utils.vect.VectUtil;
 import forestry.plugins.PluginCore;
@@ -142,8 +146,8 @@ public class FarmLogicOrchard extends FarmLogic {
 
 	private Collection<ICrop> getHarvestBlocks(Vect position) {
 
-		Set<Vect> seen = new HashSet<>();
-		Stack<ICrop> crops = new Stack<>();
+		Set<Vect>    seen  = new HashSet<>();
+		Deque<ICrop> crops = new ArrayDeque<>();
 
 		World world = getWorld();
 
@@ -155,8 +159,8 @@ public class FarmLogicOrchard extends FarmLogic {
 		List<Vect> candidates = processHarvestBlock(crops, seen, position, position);
 		List<Vect> temp = new ArrayList<>();
 		while (!candidates.isEmpty() && crops.size() < 20) {
-			for (Vect candidate : candidates) {
-				temp.addAll(processHarvestBlock(crops, seen, position, candidate));
+			for (int i = 0; i < candidates.size(); i++) {
+				temp.addAll(processHarvestBlock(crops, seen, position, candidates.get(i)));
 			}
 			candidates.clear();
 			candidates.addAll(temp);
@@ -166,38 +170,41 @@ public class FarmLogicOrchard extends FarmLogic {
 		return crops;
 	}
 
-	private List<Vect> processHarvestBlock(Stack<ICrop> crops, Set<Vect> seen, Vect start, Vect position) {
+	private List<Vect> processHarvestBlock(Deque<ICrop> crops, Set<Vect> seen, Vect start, Vect position) {
 		World world = getWorld();
 
 		List<Vect> candidates = new ArrayList<>();
 
 		// Get additional candidates to return
+		final MutableVect mutable = new MutableVect();
 		for (int i = -2; i < 3; i++) {
 			for (int j = 0; j < 2; j++) {
 				for (int k = -1; k < 2; k++) {
-					Vect candidate = position.add(i, j, k);
-					if (Math.abs(candidate.x - start.x) > 5) {
+					mutable.set(position).add(i, j, k);
+					if (Math.abs(mutable.getX() - start.getX()) > 5) {
 						continue;
 					}
-					if (Math.abs(candidate.z - start.z) > 5) {
+					if (Math.abs(mutable.getZ() - start.getZ()) > 5) {
 						continue;
 					}
 
 					// See whether the given position has already been processed
-					if (seen.contains(candidate)) {
+					if (seen.contains(mutable)) {
 						continue;
 					}
-					if (VectUtil.isAirBlock(world, candidate)) {
+					if (VectUtil.isAirBlock(world, mutable)) {
 						continue;
 					}
-					if (VectUtil.isWoodBlock(world, candidate) || isBlockTraversable(world, candidate, traversalBlocks)) {
-						candidates.add(candidate);
-						seen.add(candidate);
-					} else if (isFruitBearer(world, candidate)) {
-						candidates.add(candidate);
-						seen.add(candidate);
+					if (VectUtil.isWoodBlock(world, mutable) || isBlockTraversable(world, mutable, traversalBlocks)) {
+						final Vect immutable = new Vect(mutable);
+						candidates.add(immutable);
+						seen.add(immutable);
+					} else if (isFruitBearer(world, mutable)) {
+						final Vect immutable = new Vect(mutable);
+						candidates.add(immutable);
+						seen.add(immutable);
 
-						ICrop crop = getCrop(world, candidate);
+						ICrop crop = getCrop(world, immutable);
 						if (crop != null) {
 							crops.push(crop);
 						}
@@ -209,21 +216,21 @@ public class FarmLogicOrchard extends FarmLogic {
 		return candidates;
 	}
 
-	private boolean isFruitBearer(World world, Vect position) {
+	private boolean isFruitBearer(World world, IVect position) {
 
-		TileEntity tile = world.getTileEntity(position.x, position.y, position.z);
+		TileEntity tile = world.getTileEntity(position.getX(), position.getY(), position.getZ());
 		if (tile instanceof IFruitBearer) {
 			return true;
 		}
 
-		Block block = precalcBlockType ? world.getBlock(position.x, position.y, position.z) : null;
-		int meta = precalcBlockMeta ? world.getBlockMetadata(position.x, position.y, position.z) : -1;
+		Block block = precalcBlockType ? world.getBlock(position.getX(), position.getY(), position.getZ()) : null;
+		int meta = precalcBlockMeta ? world.getBlockMetadata(position.getX(), position.getY(), position.getZ()) : -1;
 
 		for (IFarmable farmable : farmables) {
 			if (farmable instanceof IFarmableBasic) {
 				if (((IFarmableBasic) farmable).isSapling(block, meta))
 					return true;
-			} else if (farmable.isSaplingAt(world, position.x, position.y, position.z)) {
+			} else if (farmable.isSaplingAt(world, position.getX(), position.getY(), position.getZ())) {
 				return true;
 			}
 		}
@@ -231,29 +238,29 @@ public class FarmLogicOrchard extends FarmLogic {
 		return false;
 	}
 
-	private static boolean isBlockTraversable(World world, Vect position, ImmutableList<Block> traversalBlocks) {
+	private static boolean isBlockTraversable(World world, IVect position, ImmutableList<Block> traversalBlocks) {
 
 		Block candidate = VectUtil.getBlock(world, position);
-		for (Block block : traversalBlocks) {
-			if (block == (candidate)) {
+		for (int i = 0; i < traversalBlocks.size(); i++) {
+			if (candidate == traversalBlocks.get(i)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	private ICrop getCrop(World world, Vect position) {
+	private ICrop getCrop(World world, IVect position) {
 
-		TileEntity tile = world.getTileEntity(position.x, position.y, position.z);
+		TileEntity tile = world.getTileEntity(position.getX(), position.getY(), position.getZ());
 
 		if (tile instanceof IFruitBearer) {
 			IFruitBearer fruitBearer = (IFruitBearer) tile;
 			if (fruitBearer.hasFruit() && fruitBearer.getRipeness() >= 0.9f) {
-				return new CropFruit(world, position);
+				return new CropFruit(world, position.asImmutable());
 			}
 		} else {
 			for (IFarmable seed : farmables) {
-				ICrop crop = seed.getCropAt(world, position.x, position.y, position.z);
+				ICrop crop = seed.getCropAt(world, position.getX(), position.getY(), position.getZ());
 				if (crop != null) {
 					return crop;
 				}

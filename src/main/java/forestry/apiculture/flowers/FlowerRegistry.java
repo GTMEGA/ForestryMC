@@ -138,9 +138,7 @@ public final class FlowerRegistry implements IFlowerRegistry, IFlowerGrowthHelpe
 			Set<Block> blocks = this.registeredBlocks.get(flowerType);
 			blocks.add(block);
 
-			if (this.chances.containsKey(flowerType)) {
-				this.chances.remove(flowerType);
-			}
+            this.chances.remove(flowerType);
 		}
 	}
 
@@ -273,7 +271,7 @@ public final class FlowerRegistry implements IFlowerRegistry, IFlowerGrowthHelpe
 
 	@Override
 	public Set<IFlower> getAcceptableFlowers(String flowerType) {
-		return ImmutableSet.<IFlower>copyOf(this.registeredFlowers.get(flowerType));
+		return ImmutableSet.copyOf(this.registeredFlowers.get(flowerType));
 	}
 
 	@Override

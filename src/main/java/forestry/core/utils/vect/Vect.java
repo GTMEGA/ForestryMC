@@ -123,10 +123,12 @@ public class Vect implements IVect {
 		return new int[]{x, y, z};
 	}
 
+	@Override
 	public Vect multiply(int factor) {
 		return new Vect(x * factor, y * factor, z * factor);
 	}
 
+	@Override
 	public Vect multiply(float factor) {
 		return new Vect(Math.round(x * factor), Math.round(y * factor), Math.round(z * factor));
 	}
@@ -151,11 +153,10 @@ public class Vect implements IVect {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Vect)) {
-			return false;
+		if ((obj instanceof IVect)) {
+			return (x == ((IVect) obj).getX()) && (y == ((IVect) obj).getY()) && (z == ((IVect) obj).getZ());
 		}
-		Vect other = (Vect) obj;
-		return (x == other.x) && (y == other.y) && (z == other.z);
+		return false;
 	}
 
 	@Override
@@ -172,4 +173,17 @@ public class Vect implements IVect {
 	public int getZ() {
 		return z;
 	}
+
+
+	@Override
+	public Vect asImmutable() {
+		return this;
+	}
+
+	@Override
+	public MutableVect asMutable() {
+		return new MutableVect(this);
+	}
+
+
 }

@@ -48,7 +48,8 @@ public class ItemBlockWoodSlab extends ItemBlockWood {
 			if ((side == 1 && !flag || side == 0 && flag) && block == this.slab && blockWoodType == stackWoodType) {
 				if (world.checkNoEntityCollision(this.doubleSlab.getCollisionBoundingBoxFromPool(world, x, y, z))) {
 					if (placeWood(itemStack, stackWoodType, doubleSlab, player, world, x, y, z, 0)) {
-						world.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this.doubleSlab.stepSound.func_150496_b(), (this.doubleSlab.stepSound.getVolume() + 1.0F) / 2.0F, this.doubleSlab.stepSound.getPitch() * 0.8F);
+						world.playSoundEffect((float) x + 0.5F, (float) y + 0.5F,
+                                              (float) z + 0.5F, this.doubleSlab.stepSound.func_150496_b(), (this.doubleSlab.stepSound.getVolume() + 1.0F) / 2.0F, this.doubleSlab.stepSound.getPitch() * 0.8F);
 						--itemStack.stackSize;
 					}
 				}
@@ -160,7 +161,7 @@ public class ItemBlockWoodSlab extends ItemBlockWood {
 		if (block == this.slab && blockWoodType == stackWoodType) {
 			if (world.checkNoEntityCollision(this.doubleSlab.getCollisionBoundingBoxFromPool(world, x, y, z))) {
 				if (placeWood(itemStack, stackWoodType, doubleSlab, player, world, x, y, z, 0)) {
-					world.playSoundEffect((double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this.doubleSlab.stepSound.func_150496_b(), (this.doubleSlab.stepSound.getVolume() + 1.0F) / 2.0F, this.doubleSlab.stepSound.getPitch() * 0.8F);
+					world.playSoundEffect((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, this.doubleSlab.stepSound.func_150496_b(), (this.doubleSlab.stepSound.getVolume() + 1.0F) / 2.0F, this.doubleSlab.stepSound.getPitch() * 0.8F);
 					--itemStack.stackSize;
 				}
 			}

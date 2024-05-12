@@ -10,8 +10,10 @@
  ******************************************************************************/
 package forestry.farming.logic;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,6 +33,7 @@ import forestry.api.farming.ICrop;
 import forestry.api.farming.IFarmHousing;
 import forestry.core.utils.ItemStackUtil;
 import forestry.core.utils.Log;
+import forestry.core.utils.vect.MutableVect;
 import forestry.core.utils.vect.Vect;
 import forestry.core.utils.vect.VectUtil;
 import forestry.plugins.compat.PluginIC2;
@@ -125,8 +128,8 @@ public class FarmLogicRubber extends FarmLogic {
 
 	private Collection<ICrop> getHarvestBlocks(Vect position) {
 
-		Set<Vect> seen = new HashSet<>();
-		Stack<ICrop> crops = new Stack<>();
+		Set<Vect>    seen  = new HashSet<>();
+		Deque<ICrop> crops = new ArrayDeque<>();
 
 		World world = getWorld();
 
@@ -155,31 +158,33 @@ public class FarmLogicRubber extends FarmLogic {
 		return crops;
 	}
 
-	private ArrayList<Vect> processHarvestBlock(Stack<ICrop> crops, Set<Vect> seen, Vect position) {
+	private ArrayList<Vect> processHarvestBlock(Deque<ICrop> crops, Set<Vect> seen, Vect position) {
 		World world = getWorld();
 
 		ArrayList<Vect> candidates = new ArrayList<>();
 
 		// Get additional candidates to return
+		final MutableVect mutable = position.asMutable();
 		for (int j = 0; j < 2; j++) {
-			Vect candidate = new Vect(position.x, position.y + j, position.z);
-			if (candidate.equals(position)) {
+			mutable.y = position.y + j;
+			if (mutable.equals(position)) {
 				continue;
 			}
 
 			// See whether the given position has already been processed
-			if (seen.contains(candidate)) {
+			if (seen.contains(mutable)) {
 				continue;
 			}
 
-			Block block = VectUtil.getBlock(world, candidate);
+			Block block = VectUtil.getBlock(world, mutable);
 			if (ItemStackUtil.equals(block, PluginIC2.rubberwood)) {
-				int meta = VectUtil.getBlockMeta(world, candidate);
+				final Vect immutable = new Vect(mutable);
+				int meta = VectUtil.getBlockMeta(world, immutable);
 				if (meta >= 2 && meta <= 5) {
-					crops.push(new CropRubber(world, block, meta, candidate));
+					crops.push(new CropRubber(world, block, meta, immutable));
 				}
-				candidates.add(candidate);
-				seen.add(candidate);
+				candidates.add(immutable);
+				seen.add(immutable);
 			}
 		}
 

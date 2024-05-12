@@ -90,10 +90,10 @@ public class RenderSaplingBlock implements ISimpleBlockRenderingHandler {
 		Tessellator tess = TessProvider.getTess();
 		IIcon icon = species.getGermlingIcon(EnumGermlingType.SAPLING, renderLayer);
 
-		double d3 = (double) icon.getMinU();
-		double d4 = (double) icon.getMinV();
-		double d5 = (double) icon.getMaxU();
-		double d6 = (double) icon.getMaxV();
+		double d3 = icon.getMinU();
+		double d4 = icon.getMinV();
+		double d5 = icon.getMaxU();
+		double d6 = icon.getMaxV();
 		double d7 = 0.45D * mod;
 		double d8 = par3 + 0.5D - d7;
 		double d9 = par3 + 0.5D + d7;

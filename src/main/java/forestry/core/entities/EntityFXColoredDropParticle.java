@@ -44,7 +44,7 @@ public class EntityFXColoredDropParticle extends EntityFX {
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;
 
-		this.motionY -= (double) this.particleGravity;
+        this.motionY -= this.particleGravity;
 
 		if (this.bobTimer-- > 0) {
 			this.motionX *= 0.02D;
@@ -74,7 +74,7 @@ public class EntityFXColoredDropParticle extends EntityFX {
 		Material material = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)).getMaterial();
 
 		if (material.isLiquid() || material.isSolid()) {
-			double d0 = (double) ((float) (MathHelper.floor_double(this.posY) + 1) - BlockLiquid.getLiquidHeightPercent(this.worldObj.getBlockMetadata(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))));
+			double d0 = (float) (MathHelper.floor_double(this.posY) + 1) - BlockLiquid.getLiquidHeightPercent(this.worldObj.getBlockMetadata(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ)));
 
 			if (this.posY < d0) {
 				this.setDead();

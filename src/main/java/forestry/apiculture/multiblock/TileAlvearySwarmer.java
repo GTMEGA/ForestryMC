@@ -10,8 +10,9 @@
  ******************************************************************************/
 package forestry.apiculture.multiblock;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Map.Entry;
-import java.util.Stack;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -41,8 +42,8 @@ import forestry.core.utils.ItemStackUtil;
 public class TileAlvearySwarmer extends TileAlveary implements ISidedInventory, IActivatable, IAlvearyComponent.Active {
 
 	private final InventorySwarmer inventory;
-	private final Stack<ItemStack> pendingSpawns = new Stack<>();
-	private boolean active;
+	private final Deque<ItemStack> pendingSpawns = new ArrayDeque<>();
+	private       boolean          active;
 
 	public TileAlvearySwarmer() {
 		super(BlockAlveary.Type.SWARMER);

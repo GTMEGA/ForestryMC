@@ -92,7 +92,7 @@ public class AlleleEffectPotion extends AlleleEffectThrottled {
 	//FIXME: remove when Potion.isBadEffect() is available server-side
 	private static boolean isBadEffect(Potion potion) {
 		try {
-			return (Boolean) ReflectionHelper.getPrivateValue(Potion.class, potion, "field_76418_K", "isBadEffect");
+			return ReflectionHelper.getPrivateValue(Potion.class, potion, "field_76418_K", "isBadEffect");
 		} catch (ReflectionHelper.UnableToFindFieldException e) {
 			Log.severe("Could not access potion field isBadEffect.");
 			return false;

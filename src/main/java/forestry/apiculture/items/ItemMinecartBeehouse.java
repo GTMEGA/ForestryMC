@@ -50,9 +50,11 @@ public class ItemMinecartBeehouse extends ItemMinecart {
 		if (!world.isRemote) {
 			EntityMinecartBeeHousingBase entityMinecart;
 			if (itemStack.getItemDamage() == 0) {
-				entityMinecart = new EntityMinecartBeehouse(world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F));
+				entityMinecart = new EntityMinecartBeehouse(world, (float) x + 0.5F, (float) y + 0.5F,
+                                                            (float) z + 0.5F);
 			} else {
-				entityMinecart = new EntityMinecartApiary(world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F));
+				entityMinecart = new EntityMinecartApiary(world, (float) x + 0.5F, (float) y + 0.5F,
+                                                          (float) z + 0.5F);
 			}
 			entityMinecart.setOwner(player.getGameProfile());
 

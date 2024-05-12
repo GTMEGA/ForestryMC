@@ -88,7 +88,7 @@ public class TileLeaves extends TileTreeContainer implements IPollinatable, IFru
 	private int maturationTime;
 	private int damage;
 
-	private IEffectData effectData[] = new IEffectData[2];
+	private IEffectData[] effectData = new IEffectData[2];
 
 	/* SAVING & LOADING */
 	@Override

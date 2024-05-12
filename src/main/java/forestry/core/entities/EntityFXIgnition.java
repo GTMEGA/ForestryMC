@@ -26,7 +26,7 @@ public class EntityFXIgnition extends EntityFX {
 		this.motionX *= 0.8;
 		this.motionY *= 0.8;
 		this.motionZ *= 0.8;
-		this.motionY = (double) (this.rand.nextFloat() * 0.4F + 0.05F);
+		this.motionY = this.rand.nextFloat() * 0.4F + 0.05F;
 		this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
 		this.particleScale *= (this.rand.nextFloat() / 2) + 0.3F;
 		this.ignitionParticleScale = this.particleScale;

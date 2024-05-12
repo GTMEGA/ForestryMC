@@ -87,7 +87,7 @@ public final class AdjacentTileCache {
 		Arrays.fill(delay, DELAY_MIN);
 	}
 
-	protected void setTile(int side, TileEntity tile) {
+	private void setTile(int side, TileEntity tile) {
 		if (cache[side] != tile) {
 			cache[side] = tile;
 			changed();

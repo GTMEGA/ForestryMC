@@ -10,7 +10,9 @@
  ******************************************************************************/
 package forestry.farming.logic;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.Stack;
 
 import net.minecraft.init.Items;
@@ -27,6 +29,7 @@ import forestry.api.farming.ICrop;
 import forestry.api.farming.IFarmHousing;
 import forestry.api.farming.IFarmable;
 import forestry.core.utils.vect.Vect;
+import jdk.nashorn.internal.objects.ArrayBufferView;
 
 public class FarmLogicGourd extends FarmLogic {
 
@@ -88,7 +91,7 @@ public class FarmLogicGourd extends FarmLogic {
 	public Collection<ICrop> harvest(int x, int y, int z, FarmDirection direction, int extent) {
 		World world = getWorld();
 
-		Stack<ICrop> crops = new Stack<>();
+		Deque<ICrop> crops = new ArrayDeque<>();
 		for (int i = 0; i < extent; i++) {
 			Vect position = translateWithOffset(x, y + 1, z, direction, i);
 			for (IFarmable seed : seeds) {

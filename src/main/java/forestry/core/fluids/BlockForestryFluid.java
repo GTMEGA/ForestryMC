@@ -118,9 +118,9 @@ public class BlockForestryFluid extends BlockFluidClassic {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 		if (rand.nextInt(10) == 0 && World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !world.getBlock(x, y - 2, z).getMaterial().blocksMovement()) {
-			double px = (double) ((float) x + rand.nextFloat());
+			double px = (float) x + rand.nextFloat();
 			double py = (double) y - 1.05D;
-			double pz = (double) ((float) z + rand.nextFloat());
+			double pz = (float) z + rand.nextFloat();
 
 			EntityFX fx = new EntityFXColoredDropParticle(world, px, py, pz, color.getRed(), color.getGreen(), color.getBlue());
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);

@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class EntityFXSnow extends EntityFX {
 
-	public static IIcon icons[];
+	public static IIcon[] icons;
 
 	public EntityFXSnow(World world, double x, double y, double z) {
 		super(world, x, y, z, 0.0D, 0.0D, 0.0D);

@@ -23,7 +23,7 @@ public enum EnumTemperature {
 	public final String name;
 	public final String iconIndex;
 
-	private EnumTemperature(String name, String iconIndex) {
+	EnumTemperature(String name, String iconIndex) {
 		this.name = name;
 		this.iconIndex = iconIndex;
 	}

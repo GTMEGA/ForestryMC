@@ -35,5 +35,5 @@ public interface IArmorApiarist {
 	 * @deprecated since Forestry 4.2. Use protectEntity
 	 */
 	@Deprecated
-	public boolean protectPlayer(EntityPlayer player, ItemStack armor, String cause, boolean doProtect);
+    boolean protectPlayer(EntityPlayer player, ItemStack armor, String cause, boolean doProtect);
 }

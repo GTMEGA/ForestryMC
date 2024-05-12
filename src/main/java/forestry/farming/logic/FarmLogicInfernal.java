@@ -10,7 +10,9 @@
  ******************************************************************************/
 package forestry.farming.logic;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.Stack;
 
 import net.minecraft.init.Blocks;
@@ -67,7 +69,7 @@ public class FarmLogicInfernal extends FarmLogicHomogeneous {
 	public Collection<ICrop> harvest(int x, int y, int z, FarmDirection direction, int extent) {
 		World world = getWorld();
 
-		Stack<ICrop> crops = new Stack<>();
+		Deque<ICrop> crops = new ArrayDeque<>();
 		for (int i = 0; i < extent; i++) {
 			Vect position = translateWithOffset(x, y + 1, z, direction, i);
 			for (IFarmable farmable : germlings) {

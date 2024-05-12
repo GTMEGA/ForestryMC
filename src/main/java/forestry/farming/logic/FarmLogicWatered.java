@@ -82,12 +82,8 @@ public abstract class FarmLogicWatered extends FarmLogic {
 			return true;
 		}
 
-		if (maintainCrops(x, y + 1, z, direction, extent)) {
-			return true;
-		}
-
-		return false;
-	}
+        return maintainCrops(x, y + 1, z, direction, extent);
+    }
 
 	private boolean maintainSoil(int x, int y, int z, FarmDirection direction, int extent) {
 

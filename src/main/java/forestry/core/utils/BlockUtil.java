@@ -117,8 +117,8 @@ public abstract class BlockUtil {
 	 * Ray traces through the blocks collision from start vector to end vector returning a ray trace hit.
 	 */
 	public static MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 startVec, Vec3 endVec, float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
-		startVec = startVec.addVector((double) (-x), (double) (-y), (double) (-z));
-		endVec = endVec.addVector((double) (-x), (double) (-y), (double) (-z));
+		startVec = startVec.addVector(-x, -y, -z);
+		endVec = endVec.addVector(-x, -y, -z);
 		Vec3 vec32 = startVec.getIntermediateWithXValue(endVec, minX);
 		Vec3 vec33 = startVec.getIntermediateWithXValue(endVec, maxX);
 		Vec3 vec34 = startVec.getIntermediateWithYValue(endVec, minY);
@@ -205,7 +205,7 @@ public abstract class BlockUtil {
 				sideHit = 3;
 			}
 
-			return new MovingObjectPosition(x, y, z, sideHit, minHit.addVector((double) x, (double) y, (double) z));
+			return new MovingObjectPosition(x, y, z, sideHit, minHit.addVector(x, y, z));
 		}
 	}
 
@@ -231,8 +231,8 @@ public abstract class BlockUtil {
 	}
 
 	private static Class<? extends Block> BW_MetaGenerated_WerkstoffBlocksClass;
-	private static Block BWBlocks;
-	private static boolean bw = Loader.isModLoaded("bartworks");
+	private static       Block   BWBlocks;
+	private static final boolean bw = Loader.isModLoaded("bartworks");
 	static {
 		if (bw)
 			try {

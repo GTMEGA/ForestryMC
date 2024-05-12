@@ -26,8 +26,8 @@ import forestry.core.utils.InventoryUtil;
  */
 public class InventoryCopy implements IInventory {
 
-	private final IInventory orignal;
-	private final ItemStack contents[];
+	private final IInventory  orignal;
+	private final ItemStack[] contents;
 
 	public InventoryCopy(IInventory orignal) {
 		this.orignal = orignal;

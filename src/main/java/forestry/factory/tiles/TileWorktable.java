@@ -136,7 +136,7 @@ public class TileWorktable extends TileBase implements ICrafterWorktable {
             } else {
                 // New tick has arrived, so reset timer data
                 savedTick=currentTick;
-                savedSystemTimeExpiration = System.nanoTime() + Config.craftingTimeout * 1000000;
+                savedSystemTimeExpiration = System.nanoTime() + Config.craftingTimeout * 1000000L;
             }
         }
 

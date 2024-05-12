@@ -11,14 +11,13 @@ import forestry.api.apiculture.IHiveDrop;
 
 public interface IHiveRegistry {
 
-	/* Forestry Hive Names */
-	public static final String forest = "Forestry:forest";
-	public static final String meadows = "Forestry:meadows";
-	public static final String desert = "Forestry:desert";
-	public static final String jungle = "Forestry:jungle";
-	public static final String end = "Forestry:end";
-	public static final String snow = "Forestry:snow";
-	public static final String swamp = "Forestry:swamp";
+	/* Forestry Hive Names */ String forest = "Forestry:forest";
+	String meadows = "Forestry:meadows";
+	String desert  = "Forestry:desert";
+	String jungle = "Forestry:jungle";
+	String end    = "Forestry:end";
+	String snow = "Forestry:snow";
+	String swamp = "Forestry:swamp";
 
 	/**
 	 * Adds a new hive to be generated in the world.

@@ -10,6 +10,8 @@
  ******************************************************************************/
 package forestry.core.gui;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -172,8 +174,8 @@ public abstract class GuiAlyzer extends GuiForestry<ContainerAlyzer, IInventory>
 		textLayout.drawLine(StringUtil.localize("gui.alyzer.classification") + ":", 12);
 		textLayout.newLine();
 
-		Stack<IClassification> hierarchy = new Stack<>();
-		IClassification classification = individual.getGenome().getPrimary().getBranch();
+		Deque<IClassification> hierarchy      = new ArrayDeque<>();
+		IClassification        classification = individual.getGenome().getPrimary().getBranch();
 		while (classification != null) {
 
 			if (classification.getScientific() != null && !classification.getScientific().isEmpty()) {
@@ -202,7 +204,7 @@ public abstract class GuiAlyzer extends GuiForestry<ContainerAlyzer, IInventory>
 		// Add the species name
 		String binomial = individual.getGenome().getPrimary().getBinomial();
 		if (group != null && group.getLevel() == EnumClassLevel.GENUS) {
-			binomial = group.getScientific().substring(0, 1) + ". " + binomial.toLowerCase(Locale.ENGLISH);
+			binomial = group.getScientific().charAt(0) + ". " + binomial.toLowerCase(Locale.ENGLISH);
 		}
 
 		textLayout.drawLine(binomial, x, 0xebae85);
@@ -221,7 +223,7 @@ public abstract class GuiAlyzer extends GuiForestry<ContainerAlyzer, IInventory>
 		if (StringUtils.isBlank(description) || description.startsWith("for.description.")) {
 			textLayout.drawSplitLine(StringUtil.localize("gui.alyzer.nodescription"), 12, 200, 0x666666);
 		} else {
-			String tokens[] = description.split("\\|");
+			String[] tokens = description.split("\\|");
 			textLayout.drawSplitLine(tokens[0], 12, 200, 0x666666);
 			if (tokens.length > 1) {
 				String signature = "- " + tokens[1];
@@ -403,7 +405,7 @@ public abstract class GuiAlyzer extends GuiForestry<ContainerAlyzer, IInventory>
 		// Enable correct lighting.
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
-		String fertilityString = Integer.toString(fertility) + " x";
+		String fertilityString = fertility + " x";
 
 		int stringWidth = fontRendererObj.getStringWidth(fertilityString);
 

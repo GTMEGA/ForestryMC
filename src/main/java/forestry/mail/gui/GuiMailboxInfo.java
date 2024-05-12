@@ -27,12 +27,12 @@ import forestry.mail.POBoxInfo;
 public class GuiMailboxInfo extends Gui {
 
 	public enum XPosition {
-		LEFT, RIGHT;
-	}
+		LEFT, RIGHT
+    }
 
 	public enum YPosition {
-		TOP, BOTTOM;
-	}
+		TOP, BOTTOM
+    }
 
 	public static final GuiMailboxInfo instance = new GuiMailboxInfo();
 	private static final int WIDTH = 98;

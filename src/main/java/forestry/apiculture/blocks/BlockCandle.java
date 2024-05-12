@@ -321,9 +321,7 @@ public class BlockCandle extends BlockTorch {
 			throw new NullPointerException();
 		}
 
-		if (!lightingItems.contains(item)) {
-			lightingItems.add(item);
-		}
+        lightingItems.add(item);
 	}
 
 	public ItemStack getUnlitCandle(int amount) {

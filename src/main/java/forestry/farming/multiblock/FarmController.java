@@ -11,9 +11,11 @@
 package forestry.farming.multiblock;
 
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -109,9 +111,9 @@ public class FarmController extends RectangularMultiblockControllerBase implemen
 	private final Map<FarmDirection, List<FarmTarget>> targets = new EnumMap<>(FarmDirection.class);
 	private int allowedExtent = 0;
 
-	private IFarmLogic harvestProvider; // The farm logic which supplied the pending crops.
-	private final Stack<ICrop> pendingCrops = new Stack<>();
-	private final Stack<ItemStack> pendingProduce = new Stack<>();
+	private       IFarmLogic       harvestProvider; // The farm logic which supplied the pending crops.
+	private final Deque<ICrop>     pendingCrops   = new ArrayDeque<>();
+	private final Deque<ItemStack> pendingProduce = new ArrayDeque<>();
 
 	private Stage stage = Stage.CULTIVATE;
 

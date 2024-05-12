@@ -36,7 +36,7 @@ public abstract class BeverageEffect implements IBeverageEffect {
 
 		if (BeverageManager.effectList[id] != null) {
 			throw new RuntimeException("Beverage effect slot " + id + " was already occupied by " + BeverageManager.effectList[id].toString()
-					+ " when trying to add " + this.toString());
+                                       + " when trying to add " + this);
 		} else {
 			BeverageManager.effectList[id] = this;
 		}

@@ -26,7 +26,7 @@ public class InfuserMixture {
 		this(meta, new ItemStack[]{ingredient}, effect);
 	}
 
-	public InfuserMixture(int meta, ItemStack ingredients[], IBeverageEffect effect) {
+	public InfuserMixture(int meta, ItemStack[] ingredients, IBeverageEffect effect) {
 		this.meta = meta;
 		this.ingredients = ingredients;
 		this.effect = effect;

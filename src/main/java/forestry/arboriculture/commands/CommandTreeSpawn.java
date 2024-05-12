@@ -36,7 +36,7 @@ public final class CommandTreeSpawn extends SubCommand {
 	}
 
 	@Override
-	public final void processSubCommand(ICommandSender sender, String[] arguments) {
+	public void processSubCommand(ICommandSender sender, String[] arguments) {
 		if (arguments.length < 1 || arguments.length > 2) {
 			printHelp(sender);
 			return;

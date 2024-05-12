@@ -10,7 +10,9 @@
  ******************************************************************************/
 package forestry.farming.logic;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.Stack;
 
 import net.minecraft.block.Block;
@@ -79,7 +81,7 @@ public class FarmLogicPeat extends FarmLogicWatered {
 	public Collection<ICrop> harvest(int x, int y, int z, FarmDirection direction, int extent) {
 		World world = getWorld();
 
-		Stack<ICrop> crops = new Stack<>();
+		Deque<ICrop> crops = new ArrayDeque<>();
 		for (int i = 0; i < extent; i++) {
 			Vect position = translateWithOffset(x, y, z, direction, i);
 			ItemStack occupant = VectUtil.getAsItemStack(world, position);

@@ -59,22 +59,22 @@ public final class AccessHandler implements IAccessHandler {
 	}
 
 	@Override
-	public final boolean allowsRemoval(EntityPlayer player) {
+	public boolean allowsRemoval(EntityPlayer player) {
 		return !Config.enablePermissions || getAccess() == EnumAccess.SHARED || !isOwned() || isOwner(player) || Proxies.common.isOp(player);
 	}
 
 	@Override
-	public final boolean allowsAlteration(EntityPlayer player) {
+	public boolean allowsAlteration(EntityPlayer player) {
 		return allowsRemoval(player);
 	}
 
 	@Override
-	public final boolean allowsViewing(EntityPlayer player) {
+	public boolean allowsViewing(EntityPlayer player) {
 		return allowsAlteration(player) || getAccess() == EnumAccess.VIEWABLE;
 	}
 
 	@Override
-	public final boolean allowsPipeConnections() {
+	public boolean allowsPipeConnections() {
 		return access == EnumAccess.SHARED;
 	}
 

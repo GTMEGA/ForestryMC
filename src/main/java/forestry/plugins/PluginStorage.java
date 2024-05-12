@@ -182,18 +182,18 @@ public class PluginStorage extends ForestryPlugin {
 		config.save();
 
 		BackpackDefinition forester = (BackpackDefinition) BackpackManager.definitions.get("forester");
-		forester.addValidBlockClasses(Arrays.<Class>asList(
+		forester.addValidBlockClasses(Arrays.asList(
 				IPlantable.class,
 				IGrowable.class,
 				IShearable.class
-		));
-		forester.addValidItemClasses(Arrays.<Class>asList(
+                                                   ));
+		forester.addValidItemClasses(Arrays.asList(
 				IPlantable.class,
 				IGrowable.class
-		));
+                                                  ));
 
 		BackpackDefinition builder = (BackpackDefinition) BackpackManager.definitions.get("builder");
-		builder.addValidBlockClasses(Arrays.<Class>asList(
+		builder.addValidBlockClasses(Arrays.asList(
 				BlockStairs.class,
 				BlockFence.class,
 				BlockFenceGate.class,
@@ -210,7 +210,7 @@ public class PluginStorage extends ForestryPlugin {
 				BlockTrapDoor.class,
 				BlockDoor.class,
 				BlockSlab.class
-		));
+                                                  ));
 		builder.addValidItemClass(ItemDoor.class);
 	}
 

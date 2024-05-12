@@ -36,5 +36,32 @@ public interface IVect {
 
 	IVect add(ChunkCoordinates coordinates);
 
+	IVect multiply(int factor);
+
+	IVect multiply(float factor);
+
 	int[] toArray();
+
+	Vect asImmutable();
+
+	MutableVect asMutable();
+
+	// NOTE: All classes implementing this must implement the same hashCode and equals methods as Vect
+	int hashCode();
+
+	boolean equals(Object obj);
+
+	default int compareTo(IVect other) {
+		int x = this.getX() - other.getX();
+		if (x != 0) {
+			return x;
+		}
+
+		int y = this.getY() - other.getY();
+		if (y != 0) {
+			return y;
+		}
+
+		return this.getZ() - other.getZ();
+	}
 }

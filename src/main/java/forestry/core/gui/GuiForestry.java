@@ -188,7 +188,7 @@ public abstract class GuiForestry<C extends Container, I extends IInventory> ext
 			RenderHelper.enableGUIStandardItemLighting();
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_DEPTH_TEST);
-			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240 / 1.0F, 240 / 1.0F);
+			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240, 240);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 			ledgerManager.drawTooltips(mouseX, mouseY);
@@ -223,7 +223,7 @@ public abstract class GuiForestry<C extends Container, I extends IInventory> ext
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 				GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240 / 1.0F, 240 / 1.0F);
+				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240, 240);
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 				drawWidgets();

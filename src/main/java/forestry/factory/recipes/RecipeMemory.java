@@ -26,6 +26,8 @@ import forestry.api.core.INBTTagable;
 import forestry.core.network.DataInputStreamForestry;
 import forestry.core.network.DataOutputStreamForestry;
 import forestry.core.network.IStreamable;
+import forestry.core.utils.Log;
+import org.apache.logging.log4j.Level;
 
 public class RecipeMemory implements INBTTagable, IStreamable {
 
@@ -56,9 +58,13 @@ public class RecipeMemory implements INBTTagable, IStreamable {
 		LinkedList<MemorizedRecipe> validRecipes = new LinkedList<>();
 		for (MemorizedRecipe recipe : memorizedRecipes) {
 			if (recipe != null) {
-				recipe.calculateRecipeOutput(world);
-				if (isValid(recipe)) {
-					validRecipes.add(recipe);
+				try {
+					recipe.calculateRecipeOutput(world);
+					if (isValid(recipe)) {
+						validRecipes.add(recipe);
+					}
+				} catch (Exception e) {
+					Log.logThrowable("Error validating memorized recipe: ", e);
 				}
 			}
 		}

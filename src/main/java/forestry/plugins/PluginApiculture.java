@@ -676,8 +676,8 @@ public class PluginApiculture extends ForestryPlugin {
 			));
 
 			// Irradiated combs
-			RecipeManagers.centrifugeManager.addRecipe(20, items.beeComb.get(EnumHoneyComb.IRRADIATED, 1), ImmutableMap.<ItemStack, Float>of(
-			));
+			RecipeManagers.centrifugeManager.addRecipe(20, items.beeComb.get(EnumHoneyComb.IRRADIATED, 1), ImmutableMap.of(
+                                                                                                                          ));
 
 			// Powdery combs
 			RecipeManagers.centrifugeManager.addRecipe(20, items.beeComb.get(EnumHoneyComb.POWDERY, 1), ImmutableMap.of(

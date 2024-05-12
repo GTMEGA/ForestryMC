@@ -9,8 +9,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class DefaultClimateProvider implements IClimateProvider {
-    private World world;
-    private int xCoord, yCoord, zCoord;
+    private final World world;
+    private final int   xCoord;
+    private final int   yCoord;
+    private final int zCoord;
 
     public DefaultClimateProvider(World world, int x, int y, int z) {
         this.world = world;

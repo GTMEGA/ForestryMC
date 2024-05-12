@@ -114,7 +114,7 @@ public final class MemorizedRecipe implements INBTTagable, IStreamable {
 
 	/* INBTTagable */
 	@Override
-	public final void readFromNBT(NBTTagCompound nbttagcompound) {
+	public void readFromNBT(NBTTagCompound nbttagcompound) {
 		InventoryUtil.readFromNBT(craftMatrix, nbttagcompound);
 		lastUsed = nbttagcompound.getLong("LastUsed");
 		locked = nbttagcompound.getBoolean("Locked");

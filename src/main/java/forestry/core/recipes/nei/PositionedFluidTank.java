@@ -85,16 +85,11 @@ public class PositionedFluidTank {
 	public boolean transfer(boolean usage) {
 		if (this.tank.getFluid() != null && this.tank.getFluid().amount > 0) {
 			if (usage) {
-				if (!GuiUsageRecipe.openRecipeGui("liquid", this.tank.getFluid())) {
-					return false;
-				}
+                return GuiUsageRecipe.openRecipeGui("liquid", this.tank.getFluid());
 			} else {
-				if (!GuiCraftingRecipe.openRecipeGui("liquid", this.tank.getFluid())) {
-					return false;
-				}
+                return GuiCraftingRecipe.openRecipeGui("liquid", this.tank.getFluid());
 			}
-			return true;
-		}
+        }
 		return false;
 	}
 

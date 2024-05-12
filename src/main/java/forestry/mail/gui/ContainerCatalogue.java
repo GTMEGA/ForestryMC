@@ -59,9 +59,9 @@ public class ContainerCatalogue extends Container implements IGuiSelectable, ILe
 		EnumSet<EnumStationState> offline = EnumSet.copyOf(all);
 		offline.removeAll(online);
 
-		FILTERS.add(Collections.<IPostalState>unmodifiableSet(all));
-		FILTERS.add(Collections.<IPostalState>unmodifiableSet(online));
-		FILTERS.add(Collections.<IPostalState>unmodifiableSet(offline));
+		FILTERS.add(Collections.unmodifiableSet(all));
+		FILTERS.add(Collections.unmodifiableSet(online));
+		FILTERS.add(Collections.unmodifiableSet(offline));
 	}
 
 	public ContainerCatalogue(EntityPlayer player) {

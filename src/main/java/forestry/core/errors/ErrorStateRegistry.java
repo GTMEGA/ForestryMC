@@ -49,7 +49,7 @@ public class ErrorStateRegistry implements IErrorStateRegistry {
 
 	@Override
 	public void addAlias(IErrorState state, String name) {
-		if (!states.values().contains(state)) {
+		if (!states.containsValue(state)) {
 			throw new RuntimeException("Forestry Error State did not exist while trying to register alias.");
 		}
 

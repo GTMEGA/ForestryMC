@@ -66,7 +66,8 @@ public class PositionedStackAdv extends PositionedStack {
 		} else if (chance != 1.0F) {
 			NumberFormat percentFormat = NumberFormat.getPercentInstance();
 			percentFormat.setMaximumFractionDigits(2);
-			this.tooltip.add(EnumChatFormatting.GRAY + String.format(NEIUtils.translate("chance"), String.valueOf(percentFormat.format(chance))));
+			this.tooltip.add(EnumChatFormatting.GRAY + String.format(NEIUtils.translate("chance"),
+                                                                     percentFormat.format(chance)));
 		}
 		return this;
 	}

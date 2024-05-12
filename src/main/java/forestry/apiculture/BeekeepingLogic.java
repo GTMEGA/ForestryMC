@@ -60,8 +60,8 @@ public class BeekeepingLogic implements IBeekeepingLogic, IStreamable {
 	private int beeProgress;
 	private int beeProgressMax;
 
-	private int queenWorkCycleThrottle;
-	private IEffectData effectData[] = new IEffectData[2];
+	private int           queenWorkCycleThrottle;
+	private IEffectData[] effectData = new IEffectData[2];
 
 	private final Stack<ItemStack> spawn = new Stack<>();
 

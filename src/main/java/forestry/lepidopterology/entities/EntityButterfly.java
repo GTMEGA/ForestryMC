@@ -69,8 +69,8 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 
 	public static final int EXHAUSTION_REST = 1000;
 	public static final int EXHAUSTION_CONSUMPTION = 100 * EXHAUSTION_REST;
-	public static final int MAX_LIFESPAN = 24000 * 7; // one minecraft week in ticks
-	private int maximumHomeDistance = 64;
+	public static final int MAX_LIFESPAN        = 24000 * 7; // one minecraft week in ticks
+	private final       int maximumHomeDistance = 64;
 
 	private Vec3 flightTarget;
 	private int exhaustion;

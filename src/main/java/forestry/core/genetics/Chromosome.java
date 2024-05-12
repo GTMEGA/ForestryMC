@@ -102,9 +102,9 @@ public class Chromosome implements IChromosome {
 		boolean foundInvalidAlleles = false;
 
 		// use the other chromosome instead of the template if it's valid
-		if (primary != null && chromosomeClass.isInstance(primary)) {
+		if (chromosomeClass.isInstance(primary)) {
 			template = primary;
-		} else if (secondary != null && chromosomeClass.isInstance(secondary)) {
+		} else if (chromosomeClass.isInstance(secondary)) {
 			template = secondary;
 		}
 
