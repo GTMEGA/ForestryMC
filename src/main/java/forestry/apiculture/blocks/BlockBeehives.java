@@ -44,8 +44,8 @@ public class BlockBeehives extends BlockContainer {
 	public enum Type {
 		LEGACY,
 		FOREST,
-		MEADOWS;
-	}
+		MEADOWS
+    }
 
 	public BlockBeehives() {
 		super(new MaterialBeehive(true));
@@ -99,6 +99,21 @@ public class BlockBeehives extends BlockContainer {
 		List<IHiveDrop> dropList = getDropsForHive(metadata);
 
 		Collections.shuffle(dropList);
+
+
+		//Roll drops with fortune level.
+		//For fortune levels over 3 flip a coin for a second roll.
+		ret.addAll(rollDrops(dropList, world, x, y, z, fortune));
+		if (fortune > 3 && world.rand.nextInt(100) < 50) {
+			ret.addAll(rollDrops(dropList, world, x, y, z, fortune-4));
+		}
+
+		return ret;
+	}
+
+	private ArrayList<ItemStack> rollDrops(List<IHiveDrop> dropList, World world, int x, int y, int z, int fortune) {
+		ArrayList<ItemStack> ret = new ArrayList<>();
+
 		// Grab a princess
 		int tries = 0;
 		boolean hasPrincess = false;

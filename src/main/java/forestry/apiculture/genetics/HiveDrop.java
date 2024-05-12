@@ -45,7 +45,10 @@ public class HiveDrop implements IHiveDrop {
 	@Override
 	public ItemStack getPrincess(World world, int x, int y, int z, int fortune) {
 		IBee bee = beeTemplate.getIndividual();
-		if (world.rand.nextFloat() < ignobleShare * PluginApiculture.getIgnoblePrincessChanceMult()) {
+		float rand = world.rand.nextFloat();
+		float check = (ignobleShare * (PluginApiculture.getIgnoblePrincessChanceMult() - fortune * .23f));
+		System.out.println((rand<check ? "i" : "p") + rand + " / " + check);
+		if (rand < check) {
 			bee.setIsNatural(false);
 		}
 
