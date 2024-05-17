@@ -2,11 +2,6 @@
 
 repositories {
     maven {
-        name 'GTNH Maven'
-        url 'http://jenkins.usrv.eu:8081/nexus/content/groups/public/'
-        allowInsecureProtocol
-    }
-    maven {
         name = "ic2"
         url = "https://mvn.falsepattern.com/ic2/"
         metadataSources {
@@ -15,17 +10,11 @@ repositories {
         }
     }
     maven {
-        url 'https://cursemaven.com'
-        content {
-            includeGroup 'curse.maven'
-        }
-    }
-    maven {
         name = "mavenpattern"
         url = "https://mvn.falsepattern.com/releases/"
     }
     maven {
-        name = "FalsePattern GTMEGA Maven"
+        name = "mega"
         url = "https://mvn.falsepattern.com/gtmega_releases/"
     }
     maven {
@@ -37,6 +26,6 @@ repositories {
         url = "https://mvn.falsepattern.com/usrv/"
     }
     maven {
-        url 'https://jitpack.io'
+        url 'https://mvn.falsepattern.com/jitpack/'
     }
 }
