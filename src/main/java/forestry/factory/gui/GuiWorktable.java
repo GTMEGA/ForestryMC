@@ -74,23 +74,18 @@ public class GuiWorktable extends GuiForestryTitled<ContainerWorktable, TileWork
 	{
 		super.drawScreen(mouseX, mouseY, parTicks);
 
-		final Slot itemSlot = (Slot) inventorySlots.inventorySlots.get(54 + InventoryGhostCrafting.SLOT_CRAFTING_RESULT);
-
-		if (
-				/*func_146978_c(itemSlot.xDisplayPosition, itemSlot.yDisplayPosition, 16, 16, mouseX, mouseY) && */
-				!inventory.canTakeStack(InventoryGhostCrafting.SLOT_CRAFTING_RESULT)
-		) {
+		if (!inventory.canTakeStack(InventoryGhostCrafting.SLOT_CRAFTING_RESULT)) {
 			final MemorizedRecipe recipe = inventory.getCurrentRecipe();
 
 			if (recipe != null) {
 				final ItemStack[] recipeItems    = InventoryUtil.getStacks(recipe.getCraftMatrix());
 				final ItemStack[] availableItems = InventoryUtil.getStacks(inventory);
-				final ItemStack[] ingregients = RecipeUtil.getCraftIngredients(recipeItems, availableItems);
+				final ItemStack[] ingredients = RecipeUtil.getCraftIngredients(recipeItems, availableItems);
 
-				for (int slot = 0; slot < ingregients.length; slot++) {
+				for (int slot = 0; slot < ingredients.length; slot++) {
 
-					if (ingregients[slot] == null && recipeItems[slot] != null) {
-						renderSlotOverlay((Slot) inventorySlots.inventorySlots.get(54 + slot));
+					if (ingredients[slot] == null && recipeItems[slot] != null) {
+						renderSlotOverlay((Slot) inventorySlots.inventorySlots.get(90 + slot));
 					}
 
 				}
@@ -106,7 +101,7 @@ public class GuiWorktable extends GuiForestryTitled<ContainerWorktable, TileWork
 		final int top = guiTop + slot.yDisplayPosition;
 
 		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glTranslatef(0, 0, 150);
+		GL11.glTranslatef(0, 0, 1);
 		drawRect(left, top, left + 16, top + 16, 0x709b150c);
 		GL11.glTranslatef(0, 0, -150);
 		GL11.glEnable(GL11.GL_LIGHTING);
