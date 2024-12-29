@@ -73,6 +73,9 @@ public class TileWorktable extends TileBase implements ICrafterWorktable {
 	/* NETWORK */
 	@Override
 	public void writeData(DataOutputStreamForestry data) throws IOException {
+		// Required for item-nbt placement to work
+		recipeMemory.validate(worldObj);
+
 		super.writeData(data);
 
 		craftingDisplay.writeData(data);
@@ -85,6 +88,14 @@ public class TileWorktable extends TileBase implements ICrafterWorktable {
 
 		craftingDisplay.readData(data);
 		recipeMemory.readData(data);
+	}
+
+	/* ITEM */
+	public void writeToItemNBT(ItemStack itemStack) {
+		itemStack.stackTagCompound = new NBTTagCompound();
+		craftingDisplay.writeToNBT(itemStack.stackTagCompound);
+		recipeMemory.writeToNBT(itemStack.stackTagCompound);
+		// NOTE: Writing is done by some internal Vanilla magic, god knows where or how!
 	}
 
 	@Override
