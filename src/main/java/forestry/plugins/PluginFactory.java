@@ -67,6 +67,7 @@ import forestry.factory.recipes.SqueezerRecipeManager;
 import forestry.factory.recipes.StillRecipeManager;
 import forestry.factory.triggers.FactoryTriggers;
 
+
 @Plugin(pluginID = "Factory", name = "Factory", author = "SirSengir", url = Constants.URL, unlocalizedDescription = "for.plugin.factory.description")
 public class PluginFactory extends ForestryPlugin {
 	public static BlockRegistryFactory blocks;
@@ -423,7 +424,7 @@ public class PluginFactory extends ForestryPlugin {
 		RecipeManagers.carpenterManager.addRecipe(null, PluginCore.items.ingotBronze.getItemStack(), "#", '#', PluginCore.items.brokenBronzeShovel);
 
 		// Crating and uncrating
-		if (PluginManager.Module.STORAGE.isEnabled()) {
+		if (PluginManager.Module.STORAGE.isEnabled() && (PluginManager.Module.EREBUS.isEnabled())) {
 			PluginStorage.createCrateRecipes();
 		}
 		ICircuitLayout layout = ChipsetManager.circuitRegistry.getLayout("forestry.machine.upgrade");
