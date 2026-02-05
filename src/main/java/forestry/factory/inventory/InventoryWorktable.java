@@ -18,10 +18,10 @@ import forestry.factory.tiles.TileWorktable;
 
 public class InventoryWorktable extends InventoryAdapterTile<TileWorktable> {
 	public final static short SLOT_INVENTORY_1 = 0;
-	public final static short SLOT_INVENTORY_COUNT = 18;
+	public final static short SLOT_INVENTORY_COUNT = 36;
 
 	public InventoryWorktable(TileWorktable worktable) {
-		super(worktable, 18, "Items");
+		super(worktable, 36, "Items");
 	}
 
 	@Override

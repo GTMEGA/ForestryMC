@@ -72,15 +72,16 @@ public class ContainerWorktable extends ContainerTile<TileWorktable> implements 
 	private boolean craftMatrixChanged = false;
 
 	public ContainerWorktable(EntityPlayer player, TileWorktable tile) {
-		super(tile, player.inventory, 8, 136);
+		super(tile, player.inventory, -73, 136);
 
 		IInventory craftingDisplay = tile.getCraftingDisplay();
 		IInventory internalInventory = tile.getInternalInventory();
 
 		// Internal inventory
 		for (int i = 0; i < 2; i++) {
-			for (int k = 0; k < 9; k++) {
+			for (int k = 0; k < 18; k++) {
 				addSlotToContainer(new Slot(internalInventory, InventoryWorktable.SLOT_INVENTORY_1 + k + i * 9, 8 + k * 18, 90 + i * 18));
+				//addSlotToContainer(new Slot(internalInventory, InventoryWorktable.SLOT_INVENTORY_1 + k + i * 9, 8 + k * 18, 90 + i * 18[vertical offset]));
 			}
 		}
 
