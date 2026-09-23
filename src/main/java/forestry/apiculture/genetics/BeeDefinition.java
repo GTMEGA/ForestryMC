@@ -42,6 +42,8 @@ import forestry.plugins.PluginCore;
 
 public enum BeeDefinition implements IBeeDefinition {
 	/* HONEY BRANCH */
+
+
 	FOREST(BeeBranchDefinition.HONEY, "nigrocincta", true, new Color(0x19d0ec), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesCustom beeSpecies) {
@@ -59,6 +61,7 @@ public enum BeeDefinition implements IBeeDefinition {
 			// found in hives
 		}
 	},
+
 	MEADOWS(BeeBranchDefinition.HONEY, "florea", true, new Color(0xef131e), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesCustom beeSpecies) {
@@ -372,7 +375,7 @@ public enum BeeDefinition implements IBeeDefinition {
 	MODEST(BeeBranchDefinition.AUSTERE, "modicus", false, new Color(0xc5be86), new Color(0xffdc16)) {
 		@Override
 		protected void setSpeciesProperties(IAlleleBeeSpeciesCustom beeSpecies) {
-			beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.PARCHED, 1), 0.20f)
+			beeSpecies.addProduct(PluginApiculture.items.beeComb.get(EnumHoneyComb.PARCHED, 1), 0.20f / nerfAmount)
 					.setTemperature(EnumTemperature.HOT)
 					.setHumidity(EnumHumidity.ARID);
 		}
@@ -1033,4 +1036,6 @@ public enum BeeDefinition implements IBeeDefinition {
 	public final IBeeDefinition getRainResist() {
 		return new BeeVariation.RainResist(this);
 	}
+	//Divider for all output amounts
+	public final int nerfAmount = 10;
 }

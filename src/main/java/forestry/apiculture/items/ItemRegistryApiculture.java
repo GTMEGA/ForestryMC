@@ -64,9 +64,9 @@ public class ItemRegistryApiculture extends ItemRegistry {
 		minecartBeehouse = registerItem(new ItemMinecartBeehouse(), "cart.beehouse");
 		
 		// / COMB FRAMES
-		frameUntreated = registerItem(new ItemHiveFrame(80, 0.9f), "frameUntreated");
-		frameImpregnated = registerItem(new ItemHiveFrame(240, 0.4f), "frameImpregnated");
-		frameProven = registerItem(new ItemHiveFrame(720, 0.3f), "frameProven");
+		frameUntreated = registerItem(new ItemHiveFrame(2000, 0.9f), "frameUntreated");
+		frameImpregnated = registerItem(new ItemHiveFrame(6000, 0.4f), "frameImpregnated");
+		frameProven = registerItem(new ItemHiveFrame(18000, 0.3f), "frameProven");
 		
 		// / BEE RESOURCES
 		honeyDrop = registerItem(new ItemOverlay(Tabs.tabApiculture, EnumHoneyDrop.VALUES), "honeyDrop");

@@ -64,7 +64,7 @@ public class HasFlowersCache implements INBTTagable {
 
 		if (cooldown <= 0) {
 			flowerCoords = FlowerManager.flowerRegistry.getAcceptedFlowerCoordinates(beeHousing, queen, flowerType);
-			cooldown = PluginApiculture.ticksPerBeeWorkCycle;
+			cooldown = PluginApiculture.ticksPerBeeWorkCycle * 25;
 		} else {
 			cooldown--;
 		}

@@ -167,15 +167,15 @@ public class EnumAllele {
 	}
 
 	public enum Lifespan implements IAlleleValue<Integer> {
-		SHORTEST(10),
-		SHORTER(20, true),
-		SHORT(30, true),
-		SHORTENED(35, true),
-		NORMAL(40),
-		ELONGATED(45, true),
-		LONG(50),
-		LONGER(60),
-		LONGEST(70);
+		SHORTEST(10 * 25),
+		SHORTER(20 * 25, true),
+		SHORT(30 * 25, true),
+		SHORTENED(35 * 25, true),
+		NORMAL(40 * 25),
+		ELONGATED(45 * 25, true),
+		LONG(50 * 25),
+		LONGER(60 * 25),
+		LONGEST(70 * 25);
 
 		private final Integer value;
 		private final boolean dominant;
@@ -329,13 +329,14 @@ public class EnumAllele {
 	}
 
 	public enum Speed implements IAlleleValue<Float> {
-		SLOWEST(0.3f, true),
-		SLOWER(0.6f, true),
-		SLOW(0.8f, true),
-		NORMAL(1.0f),
-		FAST(1.2f, true),
-		FASTER(1.4f),
-		FASTEST(1.7f);
+		SLOWEST(0.5f, true),
+		SLOWER(0.8f, true),
+		SLOW(1.2f, true),
+		NORMAL(1.7f),
+		FAST(2.3f, true),
+		FASTER(3.0f),
+		FASTEST(4.0f);
+//		MEGA(10.0f, true);
 
 		private final float value;
 		private final boolean dominant;

@@ -132,7 +132,7 @@ public class PluginApiculture extends ForestryPlugin {
 	private static float secondPrincessChance = 0;
 
 	private static float ignoblePrincessChanceMult = 1;
-	public static final int ticksPerBeeWorkCycle = 550;
+	public static final int ticksPerBeeWorkCycle = 20;
 	public static boolean fancyRenderedBees = false;
 
 	public static ItemRegistryApiculture items;
