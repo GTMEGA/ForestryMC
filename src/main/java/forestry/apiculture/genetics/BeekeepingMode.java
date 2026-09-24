@@ -95,7 +95,7 @@ public class BeekeepingMode implements IBeekeepingMode {
 		IBeeModifier beeModifier = BeeManager.beeRoot.createBeeHousingModifier(housing);
 
 		float productionModifier = beeModifier.getProductionModifier(queen.getGenome(), 1f);
-		if (productionModifier > 16) {
+		if (productionModifier > 1e6) {
             return housing.getWorld().rand.nextFloat() * 100 < 0.01 * ((productionModifier * productionModifier) - 100);
 		}
 		

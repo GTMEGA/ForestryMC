@@ -36,7 +36,7 @@ import java.util.function.Predicate;
 
 public abstract class BlockUtil {
 
-	private static final int slabWoodId = OreDictionary.getOreID("slabWood");
+	private static final int slabWoodId = OreDictionary.getOreID("alvearyRoof");
 
 	public static ArrayList<ItemStack> getBlockDrops(World world, Vect posBlock) {
 		Block block = world.getBlock(posBlock.x, posBlock.y, posBlock.z);

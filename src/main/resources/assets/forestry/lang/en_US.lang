@@ -1147,8 +1147,8 @@ for.multiblock.error.small.x=The multiblock is too small, it must be at least %d
 for.multiblock.error.small.y=The multiblock is too small, it must be at least %d blocks in the Y dimension.
 for.multiblock.error.small.z=The multiblock is too small, it must be at least %d blocks in the Z dimension.
 
-for.multiblock.alveary.error.needSlabs=The Alveary must have wooden slabs on top.
-for.multiblock.alveary.error.needSpace=The alveary needs space around the top for the bees to enter and exit.
+for.multiblock.alveary.error.needSlabs=The Alveary must have Alveary Roof on top.
+for.multiblock.alveary.error.needSpace=The Alveary needs space around the top for the bees to enter and exit.
 for.multiblock.alveary.error.needPlainOnTop=The Alveary must have plain alveary blocks for the top level.
 for.multiblock.alveary.error.needPlainInterior=The Alveary must have plain alveary blocks for the interior.
 
