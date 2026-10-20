@@ -315,10 +315,10 @@ public class PluginCore extends ForestryPlugin {
 		@Override
 		public int getBurnTime(ItemStack fuel) {
 			if (fuel != null && fuel.getItem() == items.peat) {
-				return 2000;
+				return 3200;
 			}
 			if (fuel != null && fuel.getItem() == items.bituminousPeat) {
-				return 4200;
+				return 24000;
 			}
 
 			return 0;

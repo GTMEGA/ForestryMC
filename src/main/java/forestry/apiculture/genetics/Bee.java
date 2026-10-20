@@ -762,7 +762,7 @@ public class Bee extends IndividualLiving implements IBee {
 
 		IBeeModifier beeModifier = BeeManager.beeRoot.createBeeHousingModifier(housing);
 
-		int chance = Math.round(genome.getFlowering() * beeModifier.getFloweringModifier(getGenome(), 1f));
+		int chance = Math.round(genome.getFlowering() * beeModifier.getFloweringModifier(getGenome(), 0.03f));//Reduce heavily to account for tick speedup.
 
 		World world = housing.getWorld();
 		Random random = world.rand;
