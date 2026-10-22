@@ -11,8 +11,10 @@
 package forestry.core.circuits;
 
 public enum EnumCircuitBoardType {
-	BASIC((short) 1, 0x191919, 0x6dcff6), ENHANCED((short) 2, 0x191919, 0xcb7c32), REFINED((short) 3, 0x191919, 0xc9c9c9), INTRICATE((short) 4, 0x191919,
-			0xe2cb6b);
+//	BASIC((short) 1, 0x191919, 0x6dcff6), ENHANCED((short) 2, 0x191919, 0xcb7c32), REFINED((short) 3, 0x191919, 0xc9c9c9), INTRICATE((short) 4, 0x191919,
+//			0xe2cb6b); Old Colors, setting these to white so CIT can work in MEGA
+	BASIC((short) 1, 0xffffff, 0xffffff), ENHANCED((short) 2, 0xffffff, 0xffffff), REFINED((short) 3, 0xffffff, 0xffffff), INTRICATE((short) 4, 0xffffff,
+			0xffffff);
 
 	private final short sockets;
 	private final int primaryColor;
