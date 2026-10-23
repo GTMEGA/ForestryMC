@@ -94,7 +94,7 @@ public enum BeeDefinition implements IBeeDefinition {
 			for (BeeDefinition hiveBee0 : overworldHiveBees) {
 				for (BeeDefinition hiveBee1 : overworldHiveBees) {
 					if (hiveBee0.ordinal() < hiveBee1.ordinal()) {
-						registerMutation(hiveBee0, hiveBee1, 15);
+						registerMutation(hiveBee0, hiveBee1, 25);
 					}
 				}
 			}
@@ -115,7 +115,7 @@ public enum BeeDefinition implements IBeeDefinition {
 		@Override
 		protected void registerMutations() {
 			for (BeeDefinition hiveBee : overworldHiveBees) {
-				registerMutation(COMMON, hiveBee, 12);
+				registerMutation(COMMON, hiveBee, 20);
 			}
 		}
 	},
@@ -136,7 +136,7 @@ public enum BeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(COMMON, CULTIVATED, 10);
+			registerMutation(COMMON, CULTIVATED, 15);
 		}
 	},
 	MAJESTIC(BeeBranchDefinition.NOBLE, "regalis", true, new Color(0x7f0000), new Color(0xffdc16)) {
@@ -154,7 +154,7 @@ public enum BeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(NOBLE, CULTIVATED, 8);
+			registerMutation(NOBLE, CULTIVATED, 10);
 		}
 	},
 	IMPERIAL(BeeBranchDefinition.NOBLE, "imperatorius", false, new Color(0xa3e02f), new Color(0xffdc16)) {
@@ -174,7 +174,7 @@ public enum BeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(NOBLE, MAJESTIC, 8);
+			registerMutation(NOBLE, MAJESTIC, 10);
 		}
 	},
 
@@ -194,7 +194,7 @@ public enum BeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(COMMON, CULTIVATED, 10);
+			registerMutation(COMMON, CULTIVATED, 20);
 		}
 	},
 	UNWEARY(BeeBranchDefinition.INDUSTRIOUS, "assiduus", true, new Color(0x19ec5a), new Color(0xffdc16)) {
@@ -211,7 +211,7 @@ public enum BeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(DILIGENT, CULTIVATED, 8);
+			registerMutation(DILIGENT, CULTIVATED, 15);
 		}
 	},
 	INDUSTRIOUS(BeeBranchDefinition.INDUSTRIOUS, "industria", false, new Color(0xffffff), new Color(0xffdc16)) {
